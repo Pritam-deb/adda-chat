@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
+import { BrowserRouter, Link } from "react-router-dom";
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -19,7 +20,12 @@ const LoginForm = () => {
         } catch (error) {
             setError('Incorrect credentials!');
         }
-    }
+    };
+
+    // const handleClick = () => {
+    //     console.log("clicked");
+    //     history.push("/signup");
+    // }
 
     return (
         <div className="wrapper">
@@ -30,11 +36,16 @@ const LoginForm = () => {
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Password" required/>
                     <div align="center">
                         <button type="submit" className="button">
-                        <span>Start chatting</span>
+                            <span>Start chatting</span>
                         </button>
-                            
+                        {/* <button className="button"><SignUp>Don't have an account? SignUp</SignUp> </button>  */}
+                        
                     </div>
                     <h2 className="error">{error}</h2>
+                    <BrowserRouter>
+                    <Link to="sign-up">Sign Up</Link>
+                    </BrowserRouter>
+                    
                 </form>
             </div>
         </div>

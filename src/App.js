@@ -3,11 +3,15 @@ import './App.css';
 import ChatFeed from './components/ChatFeed';
 import LoginForm from './components/LoginForm';
 import SignUpForm from "./components/SignUpForm";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, BrowserRouter } from "react-router-dom";
 
 
 const App = () => {
-  // if(!localStorage.getItem('username')) return <LoginForm/>
+  // if(!localStorage.getItem('username')) return (
+  //   <>
+  //     <BrowserRouter><LoginForm/></BrowserRouter>
+  //   </>
+  // );
   return(
     // <ChatEngine
     //   height="100vh"

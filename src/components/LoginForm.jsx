@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -32,8 +32,20 @@ const LoginForm = () => {
             <div className="form">
                 <h1 className="title">Adda-Chat App</h1>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" value={ username } onChange={(e) => setUsername(e.target.value)} className="input" placeholder="Username" required/>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Password" required/>
+                    <input 
+                        type="text" 
+                        value={ username } 
+                        onChange={(e) => setUsername(e.target.value)} 
+                        className="input" 
+                        placeholder="Username" 
+                        required/>
+                    <input 
+                    type="password" 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                    className="input" 
+                    placeholder="Password" 
+                    required/>
                     <div align="center">
                         <button type="submit" className="button">
                             <span>Start chatting</span>
@@ -42,9 +54,9 @@ const LoginForm = () => {
                         
                     </div>
                     <h2 className="error">{error}</h2>
-                    <BrowserRouter>
+                    
                     <Link to="sign-up">Sign Up</Link>
-                    </BrowserRouter>
+                    
                     
                 </form>
             </div>

@@ -1,8 +1,10 @@
 import MessageForm from './MessageForm';
 import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
+import {useHistory} from "react-router-dom";
 
 const ChatFeed = (props) => {
+    const history = useHistory();
     const {chats, activeChat, userName, messages} = props;
     const chat = chats && chats[activeChat];
     const renderReadReceipts=(message, isMyMessage)=>{
@@ -34,6 +36,17 @@ const ChatFeed = (props) => {
             })
         )
     }
+    const handleClick = () => {
+        // console.log(localStorage);
+        // console.log(localStorage.username);
+        // console.log(localStorage.password);
+        localStorage.username = "";
+        localStorage.password = "";
+        history.push("/login");
+
+
+    }
+
     renderMessages()
     if(!chat) return '....Loading';
     return(
@@ -42,6 +55,7 @@ const ChatFeed = (props) => {
                 <div className="chat-title"> {chat?.title} </div>
                 <div className="chat-subtitle">
                     {chat.people.map((person) => `${person.person.username}`)}
+                    <button style={{float: "right"}} onClick={handleClick}>Logout</button>
                 </div>
             </div>
             {renderMessages()}

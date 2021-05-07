@@ -3,10 +3,19 @@ import './App.css';
 import ChatFeed from './components/ChatFeed';
 import LoginForm from './components/LoginForm';
 import SignUpForm from "./components/SignUpForm";
-import { BrowserRouter as Router, Switch, Route, BrowserRouter } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 
 const App = () => {
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!localStorage.getItem("username")) {
+      history.replace("/login");
+    }
+  }, [history]);
+
   // if(!localStorage.getItem('username')) return (
   //   <>
   //     <BrowserRouter><LoginForm/></BrowserRouter>
@@ -20,7 +29,7 @@ const App = () => {
     //   userSecret={localStorage.getItem('password')}
     //   renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} /> }
     // />
-    <Router>
+    
     <Switch>
       <Route path="/sign-up">
         <SignUpForm />
@@ -38,7 +47,7 @@ const App = () => {
         />
       </Route>
     </Switch>
-  </Router>
+  
 
     
   );

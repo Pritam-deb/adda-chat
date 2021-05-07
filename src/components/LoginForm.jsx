@@ -1,8 +1,10 @@
 import {useState} from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const LoginForm = () => {
+    const history = useHistory();
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -16,16 +18,12 @@ const LoginForm = () => {
             localStorage.setItem('username', username);
             localStorage.setItem('password', password);
 
-            window.location.reload();
+            history.push("/");
         } catch (error) {
             setError('Incorrect credentials!');
         }
     };
 
-    // const handleClick = () => {
-    //     console.log("clicked");
-    //     history.push("/signup");
-    // }
 
     return (
         <div className="wrapper">

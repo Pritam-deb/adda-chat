@@ -1,8 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const SignUpForm = () => {
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,7 +23,11 @@ const SignUpForm = () => {
           }
         }
       )
-      .then((res) => console.log("i am new user", res));
+      .then((res) => {
+        console.log("i am new user", res);
+        history.push("/login");
+      });
+
   };
 
   return (

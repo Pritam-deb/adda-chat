@@ -37,9 +37,7 @@ const ChatFeed = (props) => {
         )
     }
     const handleClick = () => {
-        // console.log(localStorage);
-        // console.log(localStorage.username);
-        // console.log(localStorage.password);
+
         localStorage.username = "";
         localStorage.password = "";
         history.push("/login");

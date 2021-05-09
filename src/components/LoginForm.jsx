@@ -48,14 +48,9 @@ const LoginForm = () => {
                         <button type="submit" className="button">
                             <span>Start chatting</span>
                         </button>
-                        {/* <button className="button"><SignUp>Don't have an account? SignUp</SignUp> </button>  */}
-                        
                     </div>
-                    <h2 className="error">{error}</h2>
-                    
-                    <Link to="sign-up">Sign Up</Link>
-                    
-                    
+                    <h2 className="error">{error}</h2>                    
+                    <Link to="sign-up">Sign Up</Link>                  
                 </form>
             </div>
         </div>
